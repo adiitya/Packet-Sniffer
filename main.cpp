@@ -21,6 +21,20 @@ int time_spent[13];//Defines how much time has been spent on a channel
 bool printed[13];//Is a channel result printed or not.
 int packets[13];//packet count for each channel
 
+map<string,int> mac_count[13];//count for each mac_address per channel
+map<string,int> global_mac;//mac_ids gloabal for all channels
+
+int i;
+char *dev;
+char errbuf[PCAP_ERRBUF_SIZE];
+pcap_t* descr;
+const u_char *packet;
+struct pcap_pkthdr hdr;     /* pcap.h */
+struct ether_header *eptr;  /* net/ethernet.h */
+
+char* temp1;
+string temp2;
+
 
 void start(){
 
